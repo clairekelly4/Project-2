@@ -1,5 +1,14 @@
 import numpy as np
 
+# Part 1
+def get_escape_time(c: complex, max_iterations: int) -> int | None:
+    z = c
+    for Iterations in range(max_iterations):
+        if abs(z) > 2:
+            return Iterations
+        z = z**2 + c
+    return None
+
 #Part 2
 def get_complex_grid(
         top_left: complex,
