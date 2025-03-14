@@ -27,24 +27,6 @@ def get_complex_grid(
     return grid
 
 
-def get_escape_time_color_arr(
-        c_arr: np.ndarray,
-        max_iterations: int
-) -> np.ndarray:
-    color_arr = np.array([])
-    for mini in c_arr:
-        for c in mini:
-            escape_time = get_escape_time(c, max_iterations)
-            if escape_time is not None:
-                color_arr = np.append(color_arr, (max_iterations - escape_time + 1) / (max_iterations + 1))
-            else:
-                color_arr = np.append(color_arr, 0 / (max_iterations + 1))
-
-    color_final = color_arr.reshape(c_arr.shape)
-    return color_final
-
-import numpy as np
-
 def get_julia_escape_time(z: complex, c: complex, max_iterations: int) -> int:
     """
     Computes the escape time for a given complex number z under the Julia set iteration by going through Julia set to
